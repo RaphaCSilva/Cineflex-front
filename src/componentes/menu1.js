@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import axios from "axios";
 import Filme from "./filme";
 
-export default function Menu(props){
+export default function Menu1(props){
   
   const [filmes, setFilmes] = React.useState([]);
   useEffect(() => {
@@ -12,7 +12,6 @@ export default function Menu(props){
     });
   }, []);
      
-
     return(
       <>
         <div className="topo">
@@ -21,7 +20,7 @@ export default function Menu(props){
           </h2>
         </div>  
         <div className="filmes">
-          {filmes.map((filme, index) => <Filme srcimg = {filme.posterURL} key = {index} />)}
+          {filmes.map((filme, index) => <Filme srcimg = {filme.posterURL} key = {index} id = {filme.id}/>)}
         </div>
       </>
     );
