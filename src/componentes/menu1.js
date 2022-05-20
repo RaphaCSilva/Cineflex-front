@@ -11,7 +11,8 @@ export default function Menu(props){
       setFilmes(response.data);
     });
   }, []);
-  console.log(filmes);     
+     
+
     return(
       <>
         <div className="topo">
@@ -20,9 +21,7 @@ export default function Menu(props){
           </h2>
         </div>  
         <div className="filmes">
-          <div className="filme">
-            <img src="https://image.tmdb.org/t/p/w500/7D430eqZj8y3oVkLFfsWXGRcpEG.jpg"/>
-          </div>
+          {filmes.map((filme, index) => <Filme srcimg = {filme.posterURL} key = {index} />)}
         </div>
       </>
     );
