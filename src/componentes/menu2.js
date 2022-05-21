@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import axios from "axios";
+import Horario from "./horario";
 
 export default function Menu2(props){
   
@@ -24,7 +25,9 @@ export default function Menu2(props){
             Selecione o horário
           </h2>
         </div> 
-
+        <div className="horarios">
+        {arr.map((sessao, index) => <Horario diadasemana = {sessao.weekday} data = {sessao.date} key = {index}/>)}
+        </div>
         <footer>
           <div className="caixinha">
             <img src= {sessoes.posterURL}/>

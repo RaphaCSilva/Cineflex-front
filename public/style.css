@@ -39,6 +39,24 @@ h3 {
   align-items: center;
   color: #293845;
 }
+h4 {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 23px;
+  letter-spacing: 0.02em;
+  color: #293845;
+}
+h5 {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 21px;
+  letter-spacing: 0.02em;
+  color: #FFFFFF;
+}
 .topo{
   position: absolute;
   width: 100%;
@@ -100,4 +118,25 @@ footer h3{
   position: absolute;
   left: 88px;
   bottom: 39px;
+}
+.horarios {
+  margin-top: 177px;
+  margin-left: 24px;
+}
+.horario {
+  margin-bottom: 23px;
+}
+.horas{
+  margin-top: 25px;
+  display: flex;
+}
+.caixalaranja{
+  width: 83px;
+  height: 43px;
+  background: #E8833A;
+  border-radius: 3px;
+  margin-right: 9px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
