@@ -11,7 +11,7 @@ export default function Menu1(props){
       setFilmes(response.data);
     });
   }, []);
-     
+    
     return(
       <>
         <div className="topo">
@@ -20,7 +20,7 @@ export default function Menu1(props){
           </h2>
         </div>  
         <div className="filmes">
-          {filmes.map((filme, index) => <Filme srcimg = {filme.posterURL} key = {index} id = {filme.id}/>)}
+        {filmes.map((filme, index) => <Filme srcimg = {filme.posterURL} key = {index} id = {filme.id}/>)}
         </div>
       </>
     );

@@ -1,22 +1,19 @@
 import React, { useEffect } from "react";
+import { useParams } from "react-router-dom";
 import axios from "axios";
 import Horario from "./horario";
 
 export default function Menu2(props){
   
   const [sessoes, setSessoes] = React.useState({});
+  const {idfilme} = useParams(); 
   
-  let id = 1;
-  let arr =[];
-
   useEffect(() => {
-    const request = axios.get("https://mock-api.driven.com.br/api/v5/cineflex/movies/"+id+"/showtimes");
+    const request = axios.get("https://mock-api.driven.com.br/api/v5/cineflex/movies/"+idfilme+"/showtimes");
     request.then( response => {
       setSessoes(response.data);
     });
   }, []);
-  
-  arr = sessoes.days;
 
   return(
       <>
@@ -26,7 +23,7 @@ export default function Menu2(props){
           </h2>
         </div> 
         <div className="horarios">
-        {arr.map((sessao, index) => <Horario diadasemana = {sessao.weekday} data = {sessao.date} key = {index}/>)}
+          {(sessoes.days !== undefined) && sessoes.days.map((sessao, index) => <Horario diadasemana = {sessao.weekday} data = {sessao.date} key = {index} times = {sessao.showtimes}/>)}
         </div>
         <footer>
           <div className="caixinha">
