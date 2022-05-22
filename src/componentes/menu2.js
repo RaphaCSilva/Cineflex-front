@@ -8,6 +8,7 @@ export default function Menu2(props){
   const [sessoes, setSessoes] = React.useState({});
   const {idfilme} = useParams(); 
   
+
   useEffect(() => {
     const request = axios.get("https://mock-api.driven.com.br/api/v5/cineflex/movies/"+idfilme+"/showtimes");
     request.then( response => {

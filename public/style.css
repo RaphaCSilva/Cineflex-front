@@ -96,6 +96,9 @@ footer{
   bottom: 0px;
   background: #DFE6ED;
   border: 1px solid #9EADBA;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 .caixinha {
   position: absolute;
@@ -115,9 +118,7 @@ footer{
   height: 72px;
 }
 footer h3{
-  position: absolute;
-  left: 88px;
-  bottom: 39px;
+  margin-left: 88px;
 }
 .horarios {
   margin-top: 177px;
