@@ -57,6 +57,19 @@ h5 {
   letter-spacing: 0.02em;
   color: #FFFFFF;
 }
+h6{
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 11px;
+  line-height: 13px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  letter-spacing: 0.04em;
+  color: #000000;
+}
+
 .topo{
   position: absolute;
   width: 100%;
@@ -140,4 +153,87 @@ footer h3{
   display: flex;
   justify-content: center;
   align-items: center;
+}
+.bolinha {
+  width: 26px;
+  height: 26px;
+  border-radius: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 7px;
+  margin-top: 19px;
+}
+.cinza{
+  background: #C3CFD9;
+  border: 1px solid #808F9D;
+}
+.amarela{
+  background: #FBE192;
+  border: 1px solid #F7C52B;
+}
+.azul{
+  background: #8DD7CF;
+  border: 1px solid #1AAE9E;
+}
+.bolinhas {
+  display: flex;
+  flex-wrap: wrap;
+  width: 330px;
+  margin: auto;
+  margin-top: 139px;
+}
+.amostra {
+  display: flex;
+  margin-top: 16px;
+  width: 100%;
+  justify-content: space-around;
+}
+.separa{
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  letter-spacing: -0.013em;
+  color: #4E5A65;
+}
+.separa .bolinha{
+  margin: auto;
+}
+.inputs{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 35px;
+}
+.inputs h4{
+  width: 327px;
+  height: 25px;
+  margin: auto;
+  margin-top: 7px;
+  display: flex;
+  align-items: center;
+  font-size: 18px;
+  line-height: 21px;
+}
+input{
+  margin: auto;
+  width: 327px;
+  height: 51px;
+  background: #FFFFFF;
+  border: 1px solid #D5D5D5;
+  border-radius: 3px;
+}
+button{
+  margin: auto;
+  margin-top: 57px;
+  width: 225px;
+  height: 42px;
+  background: #E8833A;
+  border-radius: 3px;
 }
