@@ -1,7 +1,7 @@
 import React from "react";
 import axios from "axios";
 import Assento from "./assento";
-import { useParams } from "react-router-dom";
+import { Navigate, useParams, useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 
 export default function Menu3(props){
@@ -12,6 +12,8 @@ export default function Menu3(props){
   const [horario, setHorario] = React.useState("");
   const [nome, setNome] = React.useState("");
   const [cpf, setCPF] = React.useState("");
+  const [ids, setIds] = React.useState([]);
+  const [arr, setArr] = React.useState([]);
   const {idSessao} = useParams();
  
   useEffect(() => {
@@ -23,7 +25,42 @@ export default function Menu3(props){
       setHorario(response.data.name);
     });
   }, []);
+  
+  let obj = {};
+  let value;
+  let navigate = useNavigate();
+  
+  function recebeid(id){
+    setIds(id);
+    setArr([...arr, id]);
+  }
 
+  function filtraarr(id){
+    let arrfiltrada = arr.filter(num => num !== id);
+    setArr(arrfiltrada);
+  }
+
+  function montarobj(){
+    obj = {
+      ids: arr,
+      name: nome,
+      cpf: cpf
+    }
+    const response = axios.post('https://mock-api.driven.com.br/api/v5/cineflex/seats/book-many', obj);
+    response.then( result => {
+      console.log(result);
+      if(result.status === 200){
+        navigate("/sucesso");
+      }
+    });
+    const telasucesso = {
+      nome: filme.title
+    }
+    Navigate("/sucesso", {state:{telasucesso}});
+    setCPF("");
+    setNome("");
+  }
+ 
   return(
       <>
         <div className="topo">
@@ -32,7 +69,7 @@ export default function Menu3(props){
           </h2>
         </div> 
         <div className="bolinhas">      
-          {(lugares !== undefined) && lugares.map((lugar, index) => <Assento key = {index} numero = {lugar.name} disponibilidade = {lugar.isAvailable} id = {lugar.id}/>)}
+          {(lugares !== undefined) && lugares.map((lugar, index) => <Assento key = {index} numero = {lugar.name} disponibilidade = {lugar.isAvailable} id = {lugar.id} voltaid ={recebeid} removeid = {filtraarr}/>)}
         </div>
         <div className="amostra">
           <div className="separa">
@@ -60,7 +97,7 @@ export default function Menu3(props){
             CPF do comprador:
           </h4>
           <input placeholder="Digite seu CPF..." value={cpf} onChange={e => setCPF(e.target.value)} />
-          <button>
+          <button onClick={montarobj}>
             <h5>
               Reservar assento(s)
             </h5>
