@@ -7,7 +7,7 @@ export default function Sucesso(props){
   const [obj, setObj] = React.useState({});
   
   useEffect(() => {
-    if(location.sate !== null){
+    if(location.state !== null){
     setObj(location.state.telasucesso);
     }
   }, []);
@@ -34,7 +34,7 @@ export default function Sucesso(props){
           <h6>
             Ingressos    
           </h6>
-          <p></p>
+          {obj.id.map((id, index) => <p key={index}> Assento {id}</p>)}
         </div>
         <div className="caixota">
           <h6>
@@ -48,12 +48,12 @@ export default function Sucesso(props){
           </p>
         </div>
         <div className="final">
-          <Link to= {`/`}>
-            <button>
-              <h5>
-                Voltar pra Home
-              </h5>
-            </button>
+        <Link to= {`/`}>
+          <button>
+            <h5>
+              Voltar pra Home
+            </h5>
+          </button>
           </Link>
         </div>
       </>

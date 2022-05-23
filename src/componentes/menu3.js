@@ -30,19 +30,16 @@ export default function Menu3(props){
   let value;
   let navigate = useNavigate();
   
-  function recebeid(id){
+  function recebeid(id, cadeira){
     setArr([...arr, id]);
+    setIds([...ids, cadeira]);
   }
-  function recebenome(nome){
-    setIds([...ids, nome]);
-  }
-  function filtranome(nome){
-    let arrfiltrada = ids.filter(num => num !== nome);
-    setIds(arrfiltrada);
-  }
-  function filtraarr(id){
+
+  function filtraarr(id, cadeira){
     let arrfiltrada = arr.filter(num => num !== id);
     setArr(arrfiltrada);
+    let arrfiltrada2 = ids.filter(num => num !== cadeira);
+    setIds(arrfiltrada2);
   }
 
   function montarobj(){
@@ -78,7 +75,7 @@ export default function Menu3(props){
           </h2>
         </div> 
         <div className="bolinhas">      
-          {(lugares !== undefined) && lugares.map((lugar, index) => <Assento key = {index} numero = {lugar.name} disponibilidade = {lugar.isAvailable} id = {lugar.id} voltaid ={recebeid} removeid = {filtraarr} voltanome ={recebenome} removenome = {filtranome}/>)}
+          {(lugares !== undefined) && lugares.map((lugar, index) => <Assento key = {index} numero = {lugar.name} disponibilidade = {lugar.isAvailable} id = {lugar.id} voltaid ={recebeid} removeid = {filtraarr}/>)}
         </div>
         <div className="amostra">
           <div className="separa">

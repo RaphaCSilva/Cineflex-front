@@ -15,10 +15,10 @@ export default function Assento(props){
   function seleciona(){
     if(corbolinha === "bolinha cinza"){
       setCorbolinha("bolinha azul");
-      props.voltaid(props.id);
+      props.voltaid(props.id, props.numero);
     }else if(corbolinha === "bolinha azul"){
       setCorbolinha("bolinha cinza");
-      props.removeid(props.id);   
+      props.removeid(props.id, props.numero);  
     }else{
       alert("Esse assento não está disponível");
     }
