@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { Navigate, useParams, useNavigate, useLocation, Link } from "react-router-dom";
+import { useLocation, Link } from "react-router-dom";
 
 export default function Sucesso(props){
 
@@ -11,7 +11,7 @@ export default function Sucesso(props){
     setObj(location.state.telasucesso);
     }
   }, []);
-  console.log(obj.assentos);
+
     return (
       <>
         <div className="sucess">

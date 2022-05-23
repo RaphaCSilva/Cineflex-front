@@ -1,4 +1,3 @@
-import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 
 export default function Horario(props){
@@ -11,8 +10,8 @@ export default function Horario(props){
                 {props.times.map((hora, index) => {
                     
                     return (
-                        <Link to= {`/assentos/${hora.id}`}>
-                        <div className="caixalaranja" key = {index}>
+                        <Link to= {`/assentos/${hora.id}`} key = {index}>
+                        <div className="caixalaranja" >
                         <h5>
                           {hora.name}
                         </h5>
