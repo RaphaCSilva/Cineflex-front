@@ -31,10 +31,15 @@ export default function Menu3(props){
   let navigate = useNavigate();
   
   function recebeid(id){
-    setIds(id);
     setArr([...arr, id]);
   }
-
+  function recebenome(nome){
+    setIds([...ids, nome]);
+  }
+  function filtranome(nome){
+    let arrfiltrada = ids.filter(num => num !== nome);
+    setIds(arrfiltrada);
+  }
   function filtraarr(id){
     let arrfiltrada = arr.filter(num => num !== id);
     setArr(arrfiltrada);
@@ -48,15 +53,19 @@ export default function Menu3(props){
     }
     const response = axios.post('https://mock-api.driven.com.br/api/v5/cineflex/seats/book-many', obj);
     response.then( result => {
-      console.log(result);
       if(result.status === 200){
         navigate("/sucesso");
       }
     });
     const telasucesso = {
-      nome: filme.title
+      titulo: filme.title,
+      id: ids,
+      cpf: cpf,
+      nome: nome,
+      dia: dia.weekday,
+      horario: horario
     }
-    Navigate("/sucesso", {state:{telasucesso}});
+    navigate("/sucesso", {state:{telasucesso}});
     setCPF("");
     setNome("");
   }
@@ -69,7 +78,7 @@ export default function Menu3(props){
           </h2>
         </div> 
         <div className="bolinhas">      
-          {(lugares !== undefined) && lugares.map((lugar, index) => <Assento key = {index} numero = {lugar.name} disponibilidade = {lugar.isAvailable} id = {lugar.id} voltaid ={recebeid} removeid = {filtraarr}/>)}
+          {(lugares !== undefined) && lugares.map((lugar, index) => <Assento key = {index} numero = {lugar.name} disponibilidade = {lugar.isAvailable} id = {lugar.id} voltaid ={recebeid} removeid = {filtraarr} voltanome ={recebenome} removenome = {filtranome}/>)}
         </div>
         <div className="amostra">
           <div className="separa">
