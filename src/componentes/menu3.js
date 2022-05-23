@@ -56,7 +56,7 @@ export default function Menu3(props){
     });
     const telasucesso = {
       titulo: filme.title,
-      id: ids,
+      assentos: ids,
       cpf: cpf,
       nome: nome,
       dia: dia.weekday,

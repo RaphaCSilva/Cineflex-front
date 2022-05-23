@@ -11,7 +11,7 @@ export default function Sucesso(props){
     setObj(location.state.telasucesso);
     }
   }, []);
-
+  console.log(obj.assentos);
     return (
       <>
         <div className="sucess">
@@ -34,7 +34,7 @@ export default function Sucesso(props){
           <h6>
             Ingressos    
           </h6>
-          {obj.id.map((id, index) => <p key={index}> Assento {id}</p>)}
+          {(obj.assentos !== undefined) && obj.assentos.map((id, index) => <p key={index}> Assento {id}</p>)}
         </div>
         <div className="caixota">
           <h6>
